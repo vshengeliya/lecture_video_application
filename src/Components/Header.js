@@ -1,5 +1,4 @@
 import React from 'react'
-import Bline from "./Bline"
 
 
 // function Header(props){
@@ -17,22 +16,17 @@ import Bline from "./Bline"
 class Header extends React.Component{
 
     // constructor(props){
-    //     super (props)
-    //     this.state={color: "red"}
-
-    // } --> for ES4, ES5, Labs
+        //     super (props)
+        //     this.state={color: "red"}
+        
+        // } --> for ES4, ES5, Labs
+        //We set initial state in the constructor because it runs first
 
     state={color:"black"}
     //use state to manage info that is privat for this singular Component
     //for ES6
     //state used only with Class components unless usintg Hooks
 
-    instructors =()=>{
-       return this.props.instructors.map((instructor_name)=> <Bline name={instructor_name}/>)
-       //if the callback function created outside of render() method - use this.functionName and invoke it () in return 
-       //if variable created in render() method - access it return without word 'this' (i.e {instructors} )
-
-    }
 
     clickHandler = ()=>{
         //don't invoke () the function inside of out click in return.
@@ -49,12 +43,9 @@ class Header extends React.Component{
 
     render(){
 
-        console.log(this.state)
-
         return(
               <div>
                   <h1 onClick={this.clickHandler} style={{"border-style": "dashed", "border-color":`${this.state.color}` }}>Welcome to our App</h1>
-                  {this.instructors()}
               </div>
          )
     }
