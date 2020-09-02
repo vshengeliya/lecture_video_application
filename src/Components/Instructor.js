@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 
 class Instructor extends React.Component {
@@ -8,15 +9,14 @@ class Instructor extends React.Component {
     }
     
     render(){
-        console.log(this.props)
-        console.log(this.props.instructor.name)
-     return (
-     <p onClick={this.instructorClickHandler}> {this.props.instructor.name}</p>
-    // <h3>Name</h3>
+        
+        return (
+         <NavLink to={`/instructors/${this.props.instructor.id}`}>
+             <p onClick={this.instructorClickHandler}> {this.props.instructor.name}</p>
+         </NavLink>
 
         )
     }
-
 }
 
 

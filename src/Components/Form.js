@@ -28,7 +28,7 @@ class Form extends React.Component {
              <form onSubmit={(e)=>{
         
                      e.preventDefault()
-                     this.props.submitHandler({name:e.target[0].value})
+                     this.props.submitHandler(this.state)
                      this.setState({name:"", mod:""})
         
                      }}>

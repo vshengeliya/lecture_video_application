@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import Header from'./Components/Header';
 import InstructorContainer from './Containers/InstructorContainer'
 import AnimeContainer from './Containers/AnimeContainer'
 import Count from './Count'
 import './App.css';
+import Welcome from './Components/Welcome'
+import { Route , Switch} from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -21,11 +22,16 @@ class App extends React.Component {
     return (
     <>
     <Header />
-    <InstructorContainer appClickHandler = {this.appClickHandler} />
-    <AnimeContainer instructor= {this.state.instructor}/>
-    </>)
-  }
+    <Switch>
+    <Route path="/welcome" component={Welcome}/>
+    <Route path="/anime" render={()=><AnimeContainer instructor= {this.state.instructor}/>}/>
+    <Route path="/instructors" render={()=> <InstructorContainer appClickHandler = {this.appClickHandler} />}/>
 
+    </Switch>
+    </>
+    );
+    
+ }
 }
 
 //function way
